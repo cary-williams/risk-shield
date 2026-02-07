@@ -44,8 +44,11 @@ This project is built with:
 This project is intended to be deployed using Vercel.
 
 Recommended Vercel settings:
+
 Framework preset: Vite
+
 Build command: npm run build
+
 Output directory: dist
 
 Once the GitHub repository is connected, Vercel will automatically build and deploy on every push to the main branch.
