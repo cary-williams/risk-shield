@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 217 71% 30%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 215 20% 93%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 192 75% 36%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 217 71% 30%;
+
+    --radius: 0.5rem;
+
+    /* Risk severity tokens */
+    --risk-critical: 0 72% 51%;
+    --risk-high: 25 95% 53%;
+    --risk-medium: 45 93% 47%;
+    --risk-low: 142 71% 45%;
+    --risk-info: 199 89% 48%;
+
+    /* Chart tokens */
+    --chart-1: 217 71% 30%;
+    --chart-2: 192 75% 36%;
+    --chart-3: 25 95% 53%;
+    --chart-4: 142 71% 45%;
+    --chart-5: 0 72% 51%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 70%;
+    --primary-foreground: 222 47% 6%;
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 192 75% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 212 27% 84%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  code, pre {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .risk-badge-critical {
+    @apply bg-destructive/10 text-destructive font-semibold;
+  }
+  .risk-badge-high {
+    background-color: hsl(var(--risk-high) / 0.1);
+    color: hsl(var(--risk-high));
+    @apply font-semibold;
+  }
+  .risk-badge-medium {
+    background-color: hsl(var(--risk-medium) / 0.1);
+    color: hsl(var(--risk-medium) / 0.85);
+    @apply font-semibold;
+  }
+  .risk-badge-low {
+    background-color: hsl(var(--risk-low) / 0.1);
+    color: hsl(var(--risk-low) / 0.85);
+    @apply font-semibold;
+  }
+}
