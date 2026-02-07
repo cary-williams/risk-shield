@@ -1,5 +1,5 @@
 # Risk Shield
-This project is a web based Risk Register Generator designed to support structured risk assessments for security, compliance, and operational use cases.
+This project is a web based Risk Register Generator designed to support structured risk assessments for security, compliance, and operational use cases. A working version can be viewed here: https://cary-williams.github.io/risk-shield/
 
 The tool allows users to define the scope of an assessment, document identified risks, and evaluate those risks using likelihood and impact scoring. It distinguishes between inherent risk and residual risk by factoring in the effectiveness of existing controls, providing a clearer picture of overall risk posture.
 
@@ -41,7 +41,7 @@ This project is built with:
 
 ## How can I deploy this project?
 
-This project is intended to be deployed using Vercel.
+This project is intended to be deployed using Vercel or Github Pages
 
 Recommended Vercel settings:
 
