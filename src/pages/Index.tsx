@@ -13,7 +13,9 @@ import RiskSummaryCharts from "@/components/RiskSummaryCharts";
 import RiskPosture from "@/components/RiskPosture";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Plus, ShieldCheck } from "lucide-react";
+import { Plus, ShieldCheck, Download } from "lucide-react";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { exportPDF, exportCSV } from "@/lib/exportUtils";
 
 const Index = () => {
   const [assessment, setAssessment] = useState<Assessment>({
@@ -87,12 +89,32 @@ const Index = () => {
               <TabsTrigger value="register">Risk Register</TabsTrigger>
               <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
             </TabsList>
-            {!showForm && (
-              <Button onClick={() => setShowForm(true)} size="sm">
-                <Plus className="mr-1 h-4 w-4" />
-                Add Risk
-              </Button>
-            )}
+            <div className="flex items-center gap-2">
+              {!showForm && (
+                <Button onClick={() => setShowForm(true)} size="sm">
+                  <Plus className="mr-1 h-4 w-4" />
+                  Add Risk
+                </Button>
+              )}
+              {risks.length > 0 && (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="outline" size="sm">
+                      <Download className="mr-1 h-4 w-4" />
+                      Export
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuItem onClick={() => exportPDF(risks, assessment)}>
+                      Export as PDF
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => exportCSV(risks, assessment)}>
+                      Export as CSV
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              )}
+            </div>
           </div>
 
           <TabsContent value="register" className="space-y-4">
